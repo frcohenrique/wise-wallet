@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AuthenticationComponent,
@@ -24,8 +25,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule,
   ],
-  exports: [AuthenticationComponent],
+  exports: [
+    AuthenticationComponent,
+    AuthenticationLoginComponent,
+    AuthenticationRegisterComponent,
+  ],
 })
 export class AuthenticationModule {}

@@ -6,10 +6,10 @@
     <mat-card-content>
       <form [formGroup]="loginForm">
         <div class="form-group">
-          <table class="example-full-width" cellspacing="0">
+          <table class="table-wrapper" cellspacing="0">
             <tr>
               <td>
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="table-wrapper">
                   <mat-label>Email</mat-label>
                   <input
                     matInput
@@ -20,10 +20,10 @@
               </td>
             </tr>
           </table>
-          <table class="example-full-width" cellspacing="0">
+          <table class="table-wrapper" cellspacing="0">
             <tr>
               <td>
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="table-wrapper">
                   <mat-label>Senha</mat-label>
                   <input
                     matInput
@@ -35,13 +35,28 @@
             </tr>
           </table>
         </div>
-        <button
-          mat-stroked-button
-          color="primary"
-          (click)="submitForm()"
-        >
-          Entrar
-        </button>
+        <div class="error" *ngIf="errorMsg">
+          <p>{{ errorMsg }}</p>
+        </div>
+        <div class="button-wrapper">
+          <button
+            [disabled]="!loginForm.valid"
+            mat-stroked-button
+            color="primary"
+            class="btn-grow"
+            (click)="submitForm()"
+          >
+            Entrar
+          </button>
+          <button
+            mat-stroked-button
+            color="primary"
+            class="btn-grow"
+            [routerLink]="['/authentication/register']"
+          >
+            Crie uma conta
+          </button>
+        </div>
       </form>
     </mat-card-content>
   </div>

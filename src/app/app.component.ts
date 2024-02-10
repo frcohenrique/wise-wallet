@@ -11,6 +11,8 @@ export class AppComponent implements OnInit {
   title = 'wise-wallet';
   showHeader: boolean = false;
 
+  public currentUser: [] | any = [];
+
   constructor(
     private router: Router,
     private authService: AuthenticationService
@@ -25,6 +27,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authService.isAuthenticated().subscribe((isAuthenticated) => {
       this.showHeader = isAuthenticated;
+      this.authService.getCurrentUser().subscribe((currentUser) => {
+        this.currentUser = currentUser;
+      });
     });
   }
 }

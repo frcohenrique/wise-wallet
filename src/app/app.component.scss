@@ -4,7 +4,9 @@
   min-width: 11rem;
 }
 .card-wrapper {
-  align-items: end;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .page-content {
