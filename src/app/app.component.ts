@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private readonly dataService: DataService
   ) {}
 
   signOut() {
@@ -27,7 +29,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authService.isAuthenticated().subscribe((isAuthenticated) => {
       this.showHeader = isAuthenticated;
-      this.authService.getCurrentUser().subscribe((currentUser) => {
+      this.authService.getCurrentUser().subscribe((currentUser: any) => {
+        this.dataService.setCurrentUserId(currentUser?.uid);
         this.currentUser = currentUser;
       });
     });

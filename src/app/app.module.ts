@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,7 +37,7 @@ import { RouterModule } from '@angular/router';
     MatCardModule,
     MatIconModule,
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
