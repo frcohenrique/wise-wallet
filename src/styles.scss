@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "./assets/styles/variables.scss";
+body {
+  background-color: rgb(226, 226, 226);
+}
+
+app-authentication-login {
+  width: 80%;
+  min-width: 13rem;
+}
+
+.card-wrapper {
+  margin: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button:not(button:disabled):hover {
+  transition: 0.2s;
+  color: $secondary-color;
+  background-color: $primary-color;
+}
