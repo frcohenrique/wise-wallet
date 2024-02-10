@@ -1,11 +1,15 @@
+<mat-card *ngIf="showHeader">
+  <div class="card-wrapper">
+    <mat-card-header>
+      <!-- <mat-card-title>Login</mat-card-title> -->
+      <button mat-stroked-button color="primary" (click)="signOut()">
+        Sair
+      </button>
+    </mat-card-header>
+    <!-- <mat-card-content> </mat-card-content> -->
+  </div>
+</mat-card>
 
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<router-outlet></router-outlet>
+<div class="page-content">
+  <router-outlet></router-outlet>
+</div>
