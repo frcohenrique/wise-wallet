@@ -28,7 +28,7 @@ export class AuthenticationLoginComponent implements OnInit {
           case 'auth/invalid-login-credentials':
             this.errorMsg = 'Credenciais de login inválidas. Por favor, verifique seu e-mail e senha.'
         }
-        console.log(error.code);
+        console.error(error.code);
       }
     );
   }

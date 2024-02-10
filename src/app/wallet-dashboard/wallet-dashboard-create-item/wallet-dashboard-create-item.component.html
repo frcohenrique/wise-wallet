@@ -1,0 +1,52 @@
+<form [formGroup]="itemForm">
+  <div class="form-group">
+    <table class="table-wrapper" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="table-wrapper">
+            <mat-label>Item</mat-label>
+            <input
+              matInput
+              placeholder="Conta de Luz"
+              formControlName="expense_name"
+            />
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table class="table-wrapper" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="table-wrapper">
+            <mat-label>Quantia</mat-label>
+            <input
+              matInput
+              placeholder="900"
+              formControlName="expense_cost"
+              (keypress)="keyPress($event)"
+            />
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <table class="table-wrapper" cellspacing="0">
+      <tr>
+        <td>
+          <button
+            [disabled]="!itemForm.valid"
+            mat-stroked-button
+            color="primary"
+            class="btn-grow"
+            (click)="submitForm()"
+          >
+            Adicionar
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="error" *ngIf="errorMsg">
+    <p>{{ errorMsg }}</p>
+  </div>
+  <div class="button-wrapper"></div>
+</form>
