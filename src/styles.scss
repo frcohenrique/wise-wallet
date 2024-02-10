@@ -4,8 +4,9 @@ body {
   background-color: rgb(226, 226, 226);
 }
 
-app-authentication-login {
-  width: 80%;
+app-authentication-login,
+app-authentication-register {
+  width: 30rem;
   min-width: 13rem;
 }
 
@@ -16,8 +17,37 @@ app-authentication-login {
   align-items: center;
 }
 
+.btn-grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-grow:not(button:disabled):hover {
+  transform: scale(1.1);
+}
+
 button:not(button:disabled):hover {
   transition: 0.2s;
   color: $secondary-color;
   background-color: $primary-color;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.error {
+  margin: auto;
+  width: 80%;
+  p {
+    color: red;
+  }
+}
+
+@media (max-width: 400px) {
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

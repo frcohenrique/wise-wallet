@@ -10,6 +10,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class AuthenticationLoginComponent implements OnInit {
   public loginForm: FormGroup = this.formBuilder.group({});
+  public errorMsg: string = '';
 
   constructor(
     private readonly formBuilder: FormBuilder,
@@ -18,9 +19,18 @@ export class AuthenticationLoginComponent implements OnInit {
   ) {}
 
   submitForm() {
-    this.authService.signIn(this.loginForm.value).subscribe(() => {
-      this.router.navigate(['/']);
-    });
+    this.authService.signIn(this.loginForm.value).subscribe(
+      () => {
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        switch (error.code) {
+          case 'auth/invalid-login-credentials':
+            this.errorMsg = 'Credenciais de login inválidas. Por favor, verifique seu e-mail e senha.'
+        }
+        console.log(error.code);
+      }
+    );
   }
 
   ngOnInit(): void {

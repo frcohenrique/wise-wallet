@@ -1,11 +1,13 @@
 <mat-card *ngIf="showHeader">
   <div class="card-wrapper">
-    <mat-card-header>
-      <!-- <mat-card-title>Login</mat-card-title> -->
+    <div>
+      <p>{{ currentUser?.email }}</p>
+    </div>
+    <div>
       <button mat-stroked-button color="primary" (click)="signOut()">
         Sair
       </button>
-    </mat-card-header>
+    </div>
     <!-- <mat-card-content> </mat-card-content> -->
   </div>
 </mat-card>
