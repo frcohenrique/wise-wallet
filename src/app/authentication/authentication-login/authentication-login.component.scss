@@ -1,1 +1,8 @@
-@import '../authentication.component.scss';
+@import "../authentication.component.scss";
+
+.login {
+  width: 30%;
+  border-radius: 1rem;
+  min-width: 20rem;
+  min-height: 19vw;
+}

@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 @NgModule({
@@ -26,6 +28,7 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatGridListModule,
     RouterModule,
   ],
   exports: [

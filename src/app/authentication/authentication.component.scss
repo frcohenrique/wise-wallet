@@ -19,3 +19,44 @@ button {
 .mat-form-field {
   width: 100%;
 }
+
+img {
+  width: 27vw;
+}
+
+.title {
+  p {
+    color: white;
+    font-size: 5vh;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  }
+  text-align: center;
+}
+
+.mat-card-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 80%;
+}
+
+.mat-card-title {
+  font-size: 2rem;
+}
+
+.authentication {
+  height: 46rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .wallet {
+    display: none;
+  }
+
+  .title {
+    font-size: 3.5vh;
+  }
+}

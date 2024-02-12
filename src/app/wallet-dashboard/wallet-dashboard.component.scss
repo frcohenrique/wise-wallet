@@ -104,6 +104,15 @@ table {
   justify-content: center;
 }
 
+@media (min-width: 568px) {
+  .page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+  }
+}
+
 @media (max-width: 568px) {
   .monetary-info-container {
     display: flex;
@@ -120,5 +129,10 @@ table {
 
   .monetary-info-edit {
     margin: 1rem 0;
+  }
+  .page-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
   }
 }
