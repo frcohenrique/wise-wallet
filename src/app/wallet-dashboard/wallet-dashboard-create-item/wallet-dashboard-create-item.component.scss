@@ -1,4 +1,33 @@
 .form-group {
   display: flex;
-  justify-content: space-evenly;
+}
+
+
+.table-wrapper.item {
+  width: 34%;
+  margin-left: 1.5rem;
+}
+.table-wrapper.quantity {
+  width: 29.3%;
+}
+.table-wrapper.btn{
+  width: 35.1%;
+}
+
+.btn-add {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 568px) {
+  .form-group {
+    flex-direction: column;
+    align-items: center;
+  }
+  .table-wrapper.item {
+    margin: 0;
+  }
 }

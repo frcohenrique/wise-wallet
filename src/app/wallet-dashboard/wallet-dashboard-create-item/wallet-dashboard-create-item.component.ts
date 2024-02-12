@@ -7,7 +7,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./wallet-dashboard-create-item.component.scss'],
 })
 export class WalletDashboardCreateItemComponent implements OnInit {
-  @Output('formItemCreate') createItemForm = new EventEmitter<{
+  displayedColumns: string[] = ['item', 'quantity', 'add'];
+    @Output('formItemCreate') createItemForm = new EventEmitter<{
     expense_name: string;
     expense_cost: number;
   }>();

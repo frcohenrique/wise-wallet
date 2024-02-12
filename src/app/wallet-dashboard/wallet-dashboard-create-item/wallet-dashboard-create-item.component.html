@@ -1,6 +1,6 @@
 <form [formGroup]="itemForm">
   <div class="form-group">
-    <table class="table-wrapper" cellspacing="0">
+    <table class="table-wrapper item" cellspacing="0">
       <tr>
         <td>
           <mat-form-field class="table-wrapper">
@@ -14,7 +14,7 @@
         </td>
       </tr>
     </table>
-    <table class="table-wrapper" cellspacing="0">
+    <table class="table-wrapper quantity" cellspacing="0">
       <tr>
         <td>
           <mat-form-field class="table-wrapper">
@@ -29,10 +29,10 @@
         </td>
       </tr>
     </table>
-    <table class="table-wrapper" cellspacing="0">
+    <table class="table-wrapper btn" cellspacing="0">
       <tr>
         <td>
-          <button
+          <!-- <button
             [disabled]="!itemForm.valid"
             mat-stroked-button
             color="primary"
@@ -40,6 +40,16 @@
             (click)="submitForm()"
           >
             Adicionar
+          </button> -->
+          <button
+            [disabled]="!itemForm.valid"
+            mat-stroked-button
+            color="primary"
+            class="btn-grow btn-add"
+            mat-fab
+            (click)="submitForm()"
+          >
+            <mat-icon>add</mat-icon>
           </button>
         </td>
       </tr>

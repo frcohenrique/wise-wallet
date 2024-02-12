@@ -1,19 +1,121 @@
 <mat-card class="card-container">
   <mat-card-header class="title-wrapper">
-    <mat-card-title>Finanças</mat-card-title>
+    <mat-card-title>Orçamento Pessoal</mat-card-title>
   </mat-card-header>
   <mat-card-content class="monetary-info-container">
     <div class="monetary-info">
       <h2>Renda Mensal</h2>
-      <p class="salary">
-        {{ personalFinances?.salary / 100 | currency : "BRL" }}
-      </p>
+      <div class="monetary-info-edit">
+        <ng-container
+          *ngIf="personalFinances && personalFinances.salary && editSalary"
+        >
+          <form class="salary-edit">
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>R$ &nbsp;</mat-label>
+                <div class="input-field-wrapper">
+                  <input matInput name="salary" [(ngModel)]="salary" />
+                  <div class="icons-wrapper">
+                    <button
+                      mat-fab
+                      color="primary"
+                      class="btn-grow btn-add"
+                      mat-fab
+                      (click)="onEditSalary($event)"
+                    >
+                      <mat-icon>check</mat-icon>
+                    </button>
+
+                    <button
+                      class="btn-delete btn-grow"
+                      mat-fab
+                      color="warn"
+                      (click)="onEditSalary($event)"
+                    >
+                      <mat-icon>cancel</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-form-field>
+            </p>
+          </form>
+        </ng-container>
+
+        <div *ngIf="!editSalary" class="salary">
+          {{
+            personalFinances && personalFinances.salary
+              ? (personalFinances.salary | currency : "BRL")
+              : (0 | currency : "BRL")
+          }}
+        </div>
+
+        <button
+          class="btn-edit btn-grow"
+          mat-fab
+          color="primary"
+          *ngIf="!editSalary"
+          (click)="onEditSalary($event)"
+        >
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </button>
+      </div>
     </div>
+
     <div class="monetary-info">
       <h2>Economia Mensal</h2>
-      <p class="salary">
-        {{ personalFinances?.savings / 100 | currency : "BRL" }}
-      </p>
+      <div class="monetary-info-edit">
+        <ng-container
+          *ngIf="personalFinances && personalFinances.savings && editSavings"
+        >
+          <form class="salary-edit">
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>R$ &nbsp;</mat-label>
+                <div class="input-field-wrapper">
+                  <input matInput name="salary" [(ngModel)]="savings" />
+                  <div class="icons-wrapper">
+                    <button
+                      mat-fab
+                      color="primary"
+                      class="btn-grow btn-add"
+                      mat-fab
+                      (click)="onEditSavings($event)"
+                    >
+                      <mat-icon>check</mat-icon>
+                    </button>
+
+                    <button
+                      class="btn-delete btn-grow"
+                      mat-fab
+                      color="warn"
+                      (click)="onEditSavings($event)"
+                    >
+                      <mat-icon>cancel</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-form-field>
+            </p>
+          </form>
+        </ng-container>
+
+        <div *ngIf="!editSavings" class="salary">
+          {{
+            personalFinances && personalFinances.savings
+              ? (personalFinances.savings | currency : "BRL")
+              : (0 | currency : "BRL")
+          }}
+        </div>
+        <button
+          class="btn-edit btn-grow"
+          mat-fab
+          color="primary"
+          *ngIf="!editSavings"
+          (click)="onEditSavings($event)"
+        >
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </button>
+      </div>
     </div>
   </mat-card-content>
   <mat-card-content>
@@ -30,7 +132,7 @@
           <ng-container matColumnDef="quantity">
             <th mat-header-cell *matHeaderCellDef>Quantia</th>
             <td mat-cell *matCellDef="let element">
-              {{ element.expense_cost / 100 | currency : "BRL" }}
+              {{ element.expense_cost | currency : "BRL" }}
             </td>
           </ng-container>
 
@@ -38,7 +140,7 @@
             <th mat-header-cell *matHeaderCellDef>Remover</th>
             <td mat-cell *matCellDef="let element; let i = dataIndex">
               <button
-                class="btn-delete"
+                class="btn-delete btn-grow"
                 mat-fab
                 color="warn"
                 (click)="removeItem(element)"
@@ -55,19 +157,22 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
       </ng-container>
-      <div class="creation-container">
-        <app-wallet-dashboard-create-item
-          (formItemCreate)="onFormItemCreate($event)"
-        ></app-wallet-dashboard-create-item>
-      </div>
+      <app-wallet-dashboard-create-item
+        (formItemCreate)="onFormItemCreate($event)"
+      ></app-wallet-dashboard-create-item>
     </section>
   </mat-card-content>
-  <mat-card-actions class="actions-wrapper">
-    <button mat-stroked-button color="primary" class="btn-grow">
-      Salvar alterações
-    </button>
-    <button mat-stroked-button color="primary" class="btn-grow">
-      Descartar
-    </button>
-  </mat-card-actions>
+  <mat-card-footer class="monetary-info-container footer">
+    <ng-container *ngIf="personalFinances && personalFinances.total_expense">
+      <div class="monetary-info">
+        <h2>Despesas</h2>
+        <p>{{ personalFinances.total_expense | currency : "BRL" }}</p>
+      </div>
+      <div class="monetary-info">
+        <h2>Saldo restante</h2>
+        <p>{{ personalFinances.remaining_balance | currency : "BRL" }}</p>
+      </div>
+    </ng-container>
+    <p></p>
+  </mat-card-footer>
 </mat-card>
