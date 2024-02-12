@@ -4,13 +4,11 @@
       <p>{{ currentUser?.email }}</p>
     </div>
     <div>
-      <button mat-stroked-button color="primary" class="btn-grow" (click)="signOut()">
+      <button mat-stroked-button class="btn-grow" (click)="signOut()">
         Sair
       </button>
     </div>
   </div>
 </mat-card>
 
-<div class="page-content">
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>

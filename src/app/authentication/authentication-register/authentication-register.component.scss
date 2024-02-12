@@ -1,8 +1,13 @@
 @import "../authentication.component.scss";
 
-@media (max-width: 568px) {
-  td {
-    display: flex;
-    flex-direction: column;
-  }
+td {
+  display: flex;
+  flex-direction: column;
+}
+
+.register {
+  width: 30%;
+  border-radius: 1rem;
+  min-width: 20rem;
+  min-height: 19vw;
 }
