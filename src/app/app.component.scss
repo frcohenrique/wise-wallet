@@ -1,17 +1,29 @@
-.mat-card {
-  width: 80%;
-  margin: auto;
-  min-width: 11rem;
-}
 .card-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.page-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+@media (min-width: 568px) {
+  .page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+  }
+  .mat-card {
+    width: 80%;
+    margin: auto;
+    min-width: 11rem;
+  }
+}
+@media (max-width: 567px) {
+  .page-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .mat-card {
+    min-width: 88vw;
+  }
 }

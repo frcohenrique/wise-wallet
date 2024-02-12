@@ -21,6 +21,12 @@ app-authentication-register {
 .btn-grow {
   transition: all 0.2s ease-in-out;
 }
+.icon-grow {
+  transition: all 0.2s ease-in-out;
+}
+.icon-grow:hover {
+  transition: scale(1.1);
+}
 
 .btn-grow:not(button:disabled):hover {
   transform: scale(1.1);

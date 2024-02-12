@@ -89,7 +89,35 @@ export class FirebaseService {
           { merge: true }
         );
       }
+    } catch (error) {
+      console.error('Erro ao adicionar/atualizar despesa:', error);
+    }
+  }
 
+  async updateFinancialData(
+    user_salary: number,
+    user_savings: number,
+    userId: string
+  ) {
+    const personalFinanceRef = this.db
+      .collection('personal_finance')
+      .doc(userId);
+
+    try {
+      const personalFinanceDoc = await personalFinanceRef.get().toPromise();
+
+      if (!personalFinanceDoc?.exists) {
+        await personalFinanceRef.set({
+          owner: userId,
+          salary: user_salary,
+          savings: user_savings,
+        });
+      } else {
+        await personalFinanceRef.set(
+          { savings: user_savings, salary: user_salary },
+          { merge: true }
+        );
+      }
     } catch (error) {
       console.error('Erro ao adicionar/atualizar despesa:', error);
     }

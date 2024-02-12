@@ -1,17 +1,53 @@
 .card-container {
   margin: auto;
-  max-width: 60rem;
-  min-width: 40rem;
-  width: 80%;
+  max-width: 69rem;
+  min-width: 79vw;
+}
+
+.monetary-info {
+  margin: 0 2rem;
 }
 
 .monetary-info-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+.monetary-info-container.footer {
+  margin: 1rem 0;
 }
 
-.salary {
-  margin-top: 5px;
+.icons-wrapper {
+  display: flex;
+  button {
+    margin: 0 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mat-icon {
+    font-size: 19px;
+  }
+}
+
+.input-field-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.monetary-info-edit {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  height: 2rem;
+
+  .salary {
+    width: 100%;
+  }
+  .salary-edit {
+    width: 100%;
+  }
 }
 
 .title-wrapper {
@@ -35,23 +71,54 @@ table {
   width: 100%;
 }
 
-@media (max-width: 568px) {
-  .monetary-info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 12rem;
-  }
-}
-
-.creation-container {
-  margin-top: 1rem;
-}
-
 .btn-delete {
   width: 2rem;
   height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  background-color: red;
+}
+
+.btn-delete:hover {
+  color: red;
+  background-color: white;
+}
+.btn-edit {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .mat-icon {
+    font-size: 19px;
+  }
+}
+
+.btn-add {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 568px) {
+  .monetary-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+  }
+  .monetary-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .monetary-info-edit {
+    margin: 1rem 0;
+  }
 }

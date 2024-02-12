@@ -12,7 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { WalletDashboardCreateItemComponent } from './wallet-dashboard-create-item/wallet-dashboard-create-item.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -33,6 +33,7 @@ const routes: Routes = [
     MatIconModule,
     MatTableModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [FirebaseService],
 })
