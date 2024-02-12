@@ -12,6 +12,7 @@ import { PasswordValidator } from 'src/app/shared/validators/password.validator'
 })
 export class AuthenticationRegisterComponent implements OnInit {
   public registerForm: FormGroup = this.formBuilder.group({});
+  public hide: boolean = true;
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly authService: AuthenticationService,

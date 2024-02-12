@@ -11,6 +11,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class AuthenticationLoginComponent implements OnInit {
   public loginForm: FormGroup = this.formBuilder.group({});
   public errorMsg: string = '';
+  public hide: boolean = true;
 
   constructor(
     private readonly formBuilder: FormBuilder,
@@ -26,7 +27,8 @@ export class AuthenticationLoginComponent implements OnInit {
       (error) => {
         switch (error.code) {
           case 'auth/invalid-login-credentials':
-            this.errorMsg = 'Credenciais de login inválidas. Por favor, verifique seu e-mail e senha.'
+            this.errorMsg =
+              'Credenciais de login inválidas. Por favor, verifique seu e-mail e senha.';
         }
         console.error(error.code);
       }

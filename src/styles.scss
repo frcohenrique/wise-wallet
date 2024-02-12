@@ -61,6 +61,11 @@ button:not(button:disabled):hover {
   }
 }
 
+.money {
+  color: #00113d;
+  font-size: 18px;
+}
+
 @media (max-width: 400px) {
   .button-wrapper {
     display: flex;

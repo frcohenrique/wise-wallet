@@ -1,9 +1,6 @@
 <div class="title">
   <p>Wise Wallet</p>
 </div>
-<!-- <mat-grid-list class="login-content" cols="2" rowHeight="2:1">
-  <mat-grid-tile>Wise Wallet</mat-grid-tile>
-  <mat-grid-tile> -->
 <div class="authentication">
   <div class="wallet">
     <img src="assets/images/wallet.png" />
@@ -35,21 +32,41 @@
                 <td>
                   <mat-form-field class="table-wrapper">
                     <mat-label>Senha</mat-label>
-                    <input
-                      matInput
-                      placeholder="Admin12345"
-                      formControlName="password"
-                    />
+                    <div class="password">
+                      <input
+                        matInput
+                        [type]="hide ? 'password' : 'text'"
+                        placeholder="Admin12345"
+                        formControlName="password"
+                      />
+                      <mat-icon
+                        class="icon-grow"
+                        (click)="hide = !hide"
+                        [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide"
+                        >{{ hide ? "visibility_off" : "visibility" }}</mat-icon
+                      >
+                    </div>
                   </mat-form-field>
                 </td>
                 <td>
                   <mat-form-field class="table-wrapper">
                     <mat-label>Confirme sua senha</mat-label>
-                    <input
-                      matInput
-                      placeholder="Admin12345"
-                      formControlName="confirmPassword"
-                    />
+                    <div class="password">
+                      <input
+                        matInput
+                        [type]="hide ? 'password' : 'text'"
+                        placeholder="Admin12345"
+                        formControlName="confirmPassword"
+                      />
+                      <mat-icon
+                        class="icon-grow"
+                        (click)="hide = !hide"
+                        [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide"
+                        >{{ hide ? "visibility_off" : "visibility" }}</mat-icon
+                      >
+                    </div>
                   </mat-form-field>
                 </td>
               </tr>
