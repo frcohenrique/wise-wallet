@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { WalletDashboardCreateItemComponent } from './wallet-dashboard-create-item/wallet-dashboard-create-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -33,6 +34,7 @@ const routes: Routes = [
     MatIconModule,
     MatTableModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
     FormsModule,
   ],
   providers: [FirebaseService],

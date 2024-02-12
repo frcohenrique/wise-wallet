@@ -1,5 +1,5 @@
 <div class="page-content">
-  <mat-card class="card-container">
+  <mat-card class="card-container" *ngIf="personalFinances; else loading">
     <mat-card-header class="title-wrapper">
       <mat-card-title>Orçamento Pessoal</mat-card-title>
     </mat-card-header>
@@ -40,7 +40,7 @@
             </form>
           </ng-container>
 
-          <div *ngIf="!editSalary" class="salary">
+          <div *ngIf="!editSalary" class="money salary">
             {{
               personalFinances && personalFinances.salary
                 ? (personalFinances.salary | currency : "BRL")
@@ -95,7 +95,7 @@
             </form>
           </ng-container>
 
-          <div *ngIf="!editSavings" class="salary">
+          <div *ngIf="!editSavings" class="money salary">
             {{
               personalFinances && personalFinances.savings
                 ? (personalFinances.savings | currency : "BRL")
@@ -161,14 +161,22 @@
       <ng-container *ngIf="personalFinances && personalFinances.total_expense">
         <div class="monetary-info">
           <h2>Despesas</h2>
-          <p>{{ personalFinances.total_expense | currency : "BRL" }}</p>
+          <p class="money">
+            {{ personalFinances.total_expense | currency : "BRL" }}
+          </p>
         </div>
         <div class="monetary-info">
           <h2>Saldo restante</h2>
-          <p>{{ personalFinances.remaining_balance | currency : "BRL" }}</p>
+          <p class="money">
+            {{ personalFinances.remaining_balance | currency : "BRL" }}
+          </p>
         </div>
       </ng-container>
       <p></p>
     </mat-card-footer>
   </mat-card>
 </div>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
